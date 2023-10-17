@@ -4,18 +4,18 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST', 'GET'])
 def login():
-    giris_basarili = False
-    kullanici_adi = None
+    login_success = False
+    user_name = None
 
     if request.method == 'POST':
-        kullanici_adi = request.form['kullanici_adi']
-        sifre = request.form['sifre']
+        user_name = request.form['kullanici_adi']
+        password = request.form['sifre']
 
-        # Kullanıcı adı ve şifre kontrolü yapabilirsiniz
-        if kullanici_adi == 'kullanici' and sifre == 'parola':
-            giris_basarili = True
+        # At this state we are just checking the strings, later we can use SHA256 encoding to check user information
+        if user_name == 'Hasan' and user_name == 'Kayan':
+            login_success = True
 
-    return render_template('login.html', giris_basarili=giris_basarili, kullanici_adi=kullanici_adi)
+    return render_template('login.html', login_success=login_success, user_name=user_name)
 
 if __name__ == '__main__':
     app.run(debug=True)
