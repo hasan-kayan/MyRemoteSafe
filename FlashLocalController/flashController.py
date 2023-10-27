@@ -13,12 +13,8 @@ def pc_logoff():
 def pc_sleep():
     os.system("rundll32.exe powrprof.dll,SetSuspendState 0,1,0")
 
-def pc_smile():
-    os.system("rundll32.exe user32.dll,LockWorkStation")
-
 # Lets create a function that run a gif file
 
-import os
 
 def pc_gif():
     gif_path = 'path/to/your/gif/file.gif'
